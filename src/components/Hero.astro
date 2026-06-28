@@ -1,0 +1,278 @@
+---
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="terminal-title mono">yogeesh@portfolio ~ </span>
+      </div>
+      <div class="terminal-body">
+        <div class="line">
+          <span class="prompt mono">$</span>
+          <span class="mono typed" id="typewriter"></span>
+          <span class="cursor" id="cursor">▋</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <h1>Yogeesh H</h1>
+      <p class="hero-role mono"><span class="accent">AI Engineer</span> · Bengaluru</p>
+      <p class="hero-bio">
+        I build AI systems that work in production — RAG pipelines, LLM integrations, 
+        and full-stack platforms. Currently at Simreka engineering a chemical process 
+        SaaS; building <a href="https://mindpattern.ai" class="inline-link">MindPattern</a>, 
+        a biosensor + LLM wearable for emotional intelligence.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">View work</a>
+        <a href="#contact" class="btn-ghost">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num mono accent">1.5y</span>
+        <span class="stat-label">engineering</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num mono accent">prod</span>
+        <span class="stat-label">RAG / LangChain</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num mono accent">ME</span>
+        <span class="stat-label">background</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: calc(100vh - 56px);
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+  }
+
+  .terminal {
+    background: var(--bg-2);
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+    margin-bottom: 56px;
+    overflow: hidden;
+    max-width: 580px;
+  }
+
+  .terminal-bar {
+    background: var(--bg-3);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .dot.red    { background: #FF5F57; }
+  .dot.yellow { background: #FEBC2E; }
+  .dot.green  { background: #28C840; }
+
+  .terminal-title {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-left: 8px;
+  }
+
+  .terminal-body {
+    padding: 20px 20px 24px;
+  }
+
+  .line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .prompt {
+    color: var(--accent);
+    font-size: 15px;
+    font-weight: 700;
+    user-select: none;
+  }
+
+  #typewriter {
+    font-size: 15px;
+    color: var(--text);
+  }
+
+  .cursor {
+    color: var(--accent);
+    font-size: 15px;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  h1 {
+    font-size: clamp(40px, 7vw, 72px);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 12px;
+    font-family: var(--font-sans);
+  }
+
+  .hero-role {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .hero-bio {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 560px;
+    line-height: 1.75;
+    margin-bottom: 36px;
+  }
+
+  .inline-link {
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent-border);
+    transition: border-color 0.15s;
+  }
+  .inline-link:hover {
+    border-color: var(--accent);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+
+  .btn-primary {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    background: var(--accent);
+    color: #000;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: opacity 0.15s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+
+  .btn-ghost {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-muted);
+    border: 1px solid var(--border-strong);
+    padding: 10px 24px;
+    border-radius: 4px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .btn-ghost:hover {
+    color: var(--text);
+    border-color: var(--text-muted);
+  }
+
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .stat-num {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 32px;
+    background: var(--border-strong);
+  }
+</style>
+
+<script>
+  const phrases = [
+    'whoami',
+    'AI engineer. Full-stack. Builder.',
+    'python | vue | langchain | rabbitmq',
+    'currently: Simreka + MindPattern',
+    'open to: AI engineering roles',
+  ];
+
+  const el = document.getElementById('typewriter')!;
+  const cursor = document.getElementById('cursor')!;
+
+  let phraseIdx = 0;
+  let charIdx = 0;
+  let deleting = false;
+  let pause = false;
+
+  function tick() {
+    const current = phrases[phraseIdx];
+
+    if (pause) {
+      pause = false;
+      setTimeout(tick, deleting ? 50 : 1800);
+      return;
+    }
+
+    if (!deleting) {
+      el.textContent = current.slice(0, charIdx + 1);
+      charIdx++;
+      if (charIdx === current.length) {
+        deleting = true;
+        pause = true;
+        setTimeout(tick, 1800);
+        return;
+      }
+    } else {
+      el.textContent = current.slice(0, charIdx - 1);
+      charIdx--;
+      if (charIdx === 0) {
+        deleting = false;
+        phraseIdx = (phraseIdx + 1) % phrases.length;
+      }
+    }
+
+    setTimeout(tick, deleting ? 30 : 65);
+  }
+
+  tick();
+</script>

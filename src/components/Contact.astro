@@ -1,0 +1,177 @@
+---
+---
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-label">contact</div>
+
+    <div class="contact-layout">
+      <div class="contact-left">
+        <h2 class="contact-heading">Let's build something.</h2>
+        <p class="contact-sub">
+          Open to AI engineering roles — ideally working on LLM systems, 
+          RAG infrastructure, or products with real technical depth. 
+          Also happy to talk about MindPattern, biosensors, or edge AI.
+        </p>
+
+        <div class="contact-links">
+          <a href="mailto:yogeesh@example.com" class="contact-item">
+            <span class="mono accent">→</span>
+            <span>yogeesh@example.com</span>
+          </a>
+          <a href="https://linkedin.com/in/yogeesh" target="_blank" rel="noopener" class="contact-item">
+            <span class="mono accent">→</span>
+            <span>linkedin.com/in/yogeesh</span>
+          </a>
+          <a href="https://github.com/yogeesh" target="_blank" rel="noopener" class="contact-item">
+            <span class="mono accent">→</span>
+            <span>github.com/yogeesh</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <div class="availability-card">
+          <div class="avail-indicator">
+            <span class="avail-dot"></span>
+            <span class="mono">Available for opportunities</span>
+          </div>
+          <p class="avail-detail">Actively looking · Bengaluru / Remote</p>
+          <div class="avail-divider"></div>
+          <div class="avail-prefs">
+            <div class="pref-row">
+              <span class="pref-label mono">Role</span>
+              <span class="pref-val">AI Engineer / Full-stack</span>
+            </div>
+            <div class="pref-row">
+              <span class="pref-label mono">Focus</span>
+              <span class="pref-val">LLMs · RAG · AI systems</span>
+            </div>
+            <div class="pref-row">
+              <span class="pref-label mono">Type</span>
+              <span class="pref-val">Full-time</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .contact-heading {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .contact-sub {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 36px;
+    max-width: 440px;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 15px;
+    color: var(--text-muted);
+    transition: color 0.15s;
+  }
+
+  .contact-item:hover {
+    color: var(--text);
+  }
+
+  .availability-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .avail-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .avail-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.15);
+    animation: pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.15); }
+    50% { box-shadow: 0 0 0 6px rgba(0, 255, 136, 0.05); }
+  }
+
+  .avail-detail {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-left: 18px;
+    margin-bottom: 20px;
+  }
+
+  .avail-divider {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 20px;
+  }
+
+  .avail-prefs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .pref-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .pref-label {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .pref-val {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: right;
+  }
+
+  @media (max-width: 720px) {
+    .contact-layout {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+  }
+</style>

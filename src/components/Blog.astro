@@ -1,0 +1,145 @@
+---
+const posts = [
+  {
+    title: 'Building a production RAG pipeline for chemical patents',
+    date: 'Jun 2025',
+    readTime: '8 min',
+    tags: ['RAG', 'LangChain', 'Milvus'],
+    excerpt: 'Lessons from shipping semantic search over 10M+ chemical patents — chunking strategy, embedding choices, and retrieval quality.',
+    href: '#',
+  },
+  {
+    title: 'Event-driven architecture for biosensor data: a design walkthrough',
+    date: 'May 2025',
+    readTime: '6 min',
+    tags: ['Architecture', 'CQRS', 'MindPattern'],
+    excerpt: 'Why event sourcing makes sense when your data is physiological, time-series, and needs to power a future AI moat.',
+    href: '#',
+  },
+  {
+    title: 'Nuxt 3 session management: the double-login bug and how I fixed it',
+    date: 'Apr 2025',
+    readTime: '5 min',
+    tags: ['Nuxt 3', 'Pinia', 'Debugging'],
+    excerpt: 'A subtle stale watcher was setting sessionExpired after a successful refresh. Here\'s how I tracked it down.',
+    href: '#',
+  },
+];
+---
+
+<section class="section" id="blog">
+  <div class="container">
+    <div class="section-label">writing</div>
+
+    <div class="posts">
+      {posts.map((post) => (
+        <a href={post.href} class="post-row">
+          <div class="post-meta">
+            <span class="post-date mono">{post.date}</span>
+            <span class="sep">·</span>
+            <span class="post-read mono">{post.readTime}</span>
+          </div>
+          <div class="post-body">
+            <h3 class="post-title">{post.title}</h3>
+            <p class="post-excerpt">{post.excerpt}</p>
+            <div class="post-tags">
+              {post.tags.map((t) => (
+                <span class="tag mono">{t}</span>
+              ))}
+            </div>
+          </div>
+          <span class="post-arrow">↗</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .posts {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 24px;
+    gap: 24px;
+    align-items: start;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .post-row:hover .post-title {
+    color: var(--accent);
+  }
+
+  .post-row:hover .post-arrow {
+    color: var(--accent);
+  }
+
+  .post-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 3px;
+  }
+
+  .post-date, .post-read {
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  .sep {
+    display: none;
+  }
+
+  .post-title {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+    transition: color 0.15s;
+  }
+
+  .post-excerpt {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 12px;
+    max-width: 600px;
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 10px;
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--text-dim);
+  }
+
+  .post-arrow {
+    font-size: 16px;
+    color: var(--text-dim);
+    transition: color 0.15s;
+    padding-top: 3px;
+  }
+
+  @media (max-width: 600px) {
+    .post-row {
+      grid-template-columns: 1fr 24px;
+    }
+    .post-meta {
+      display: none;
+    }
+  }
+</style>

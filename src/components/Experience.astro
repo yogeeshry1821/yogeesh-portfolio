@@ -1,0 +1,161 @@
+---
+const jobs = [
+  {
+    company: 'Simreka',
+    role: 'Software Engineer',
+    period: 'Jan 2024 — present',
+    location: 'Bengaluru',
+    description: 'Building Process Experiment V2 — a chemical process engineering SaaS platform for simulation, LCA analysis, and patent intelligence.',
+    highlights: [
+      'Integrated RAG pipeline using LangChain + Milvus for chemical patent semantic search across 10M+ documents',
+      'Architected Life Cycle Assessment (LCA) module end-to-end: 11 DB migrations, Eloquent models, repository pattern, Pinia store, and simulation callbacks',
+      'Built real-time process simulation status updates using WebSockets + RabbitMQ message queuing',
+      'Debugged and resolved complex Nuxt 3/Pinia session management edge cases in production',
+    ],
+    stack: ['Nuxt 3', 'Laravel 11', 'Flask', 'Python', 'Redis', 'RabbitMQ', 'LangChain', 'Milvus', 'AWS', 'Docker'],
+  },
+  {
+    company: 'MindPattern',
+    role: 'Founder / Engineer',
+    period: '2024 — present',
+    location: 'Side project',
+    description: 'Building a biosensor wearable + LLM platform for emotional and cognitive navigation. HRV/GSR signal processing → LLM interpretation → actionable insights.',
+    highlights: [
+      'Designing edge AI pipeline: Polar H10 BLE → signal processing → on-device inference → LLM narrative layer',
+      'Architecting event-driven backend with CQRS/event sourcing for physiological data moat',
+      'Building multi-language codebase (TSX, TypeScript, Python) with structured AI-assisted development workflow',
+    ],
+    stack: ['Next.js', 'TypeScript', 'Python', 'FastAPI', 'Docker', 'BLE', 'Signal Processing'],
+  },
+];
+---
+
+<section class="section" id="experience">
+  <div class="container">
+    <div class="section-label">experience</div>
+
+    <div class="jobs">
+      {jobs.map((job) => (
+        <div class="job">
+          <div class="job-header">
+            <div>
+              <h3 class="job-role">{job.role}</h3>
+              <div class="job-meta mono">
+                <span class="accent">{job.company}</span>
+                <span class="sep">·</span>
+                <span class="job-period">{job.period}</span>
+                <span class="sep">·</span>
+                <span class="job-location">{job.location}</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="job-desc">{job.description}</p>
+
+          <ul class="highlights">
+            {job.highlights.map((h) => (
+              <li><span class="bullet mono accent">›</span>{h}</li>
+            ))}
+          </ul>
+
+          <div class="job-stack">
+            {job.stack.map((t) => (
+              <span class="tag mono">{t}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .jobs {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .job {
+    padding: 36px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .job:last-child {
+    border-bottom: none;
+  }
+
+  .job-header {
+    margin-bottom: 16px;
+  }
+
+  .job-role {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+
+  .job-meta {
+    font-size: 13px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .sep {
+    color: var(--text-dim);
+  }
+
+  .job-period, .job-location {
+    color: var(--text-muted);
+  }
+
+  .job-desc {
+    color: var(--text-muted);
+    font-size: 15px;
+    max-width: 680px;
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+
+  .highlights {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .highlights li {
+    font-size: 15px;
+    color: var(--text-muted);
+    display: flex;
+    gap: 12px;
+    max-width: 680px;
+    line-height: 1.6;
+  }
+
+  .bullet {
+    font-size: 14px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .job-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    border: 1px solid var(--border-strong);
+    border-radius: 3px;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+</style>

@@ -1,0 +1,197 @@
+---
+const projects = [
+  {
+    name: 'MindPattern',
+    tagline: 'Biosensor wearable + LLM for emotional intelligence',
+    description: 'End-to-end platform: BLE signal acquisition from HRV/GSR sensors, edge processing, and LLM-powered cognitive/emotional state interpretation. Designed with a data moat strategy using event sourcing.',
+    stack: ['TypeScript', 'Python', 'FastAPI', 'Next.js', 'BLE', 'LangChain'],
+    status: 'active',
+    links: { github: '#', live: '#' },
+  },
+  {
+    name: 'PE2 LCA Module',
+    tagline: 'Life Cycle Assessment for chemical process simulation',
+    description: 'Full-stack LCA reporting system inside Simreka\'s Process Experiment platform. Includes 11 DB migrations, repository pattern, Eloquent models, and Pinia store with simulation callback routing.',
+    stack: ['Nuxt 3', 'Laravel 11', 'MySQL', 'Pinia', 'GraphQL'],
+    status: 'shipped',
+    links: {},
+  },
+  {
+    name: 'Chemical Patent RAG',
+    tagline: 'Semantic search over 10M+ chemical patents',
+    description: 'Production RAG pipeline using LangChain orchestration and Milvus vector database. Handles chunking, embedding, and retrieval for chemical process engineering knowledge queries.',
+    stack: ['Python', 'LangChain', 'Milvus', 'Flask', 'OpenAI'],
+    status: 'shipped',
+    links: {},
+  },
+  {
+    name: 'CodeGraph + Codex CLI Workflow',
+    tagline: 'AI-assisted multi-language codebase navigation',
+    description: 'Structured development workflow using CLAUDE.md context files, .claudeignore, atomic task decomposition, and session extraction prompts for navigating large TypeScript + Python codebases.',
+    stack: ['Claude', 'Codex CLI', 'TypeScript', 'Python'],
+    status: 'tool',
+    links: { github: '#' },
+  },
+];
+
+const statusMap: Record<string, { label: string; color: string }> = {
+  active:  { label: 'active',  color: 'var(--accent)' },
+  shipped: { label: 'shipped', color: '#888' },
+  tool:    { label: 'tool',    color: '#6B8AFF' },
+};
+---
+
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-label">selected work</div>
+
+    <div class="projects-grid">
+      {projects.map((p) => {
+        const s = statusMap[p.status];
+        return (
+          <div class="project-card">
+            <div class="card-top">
+              <div class="card-name-row">
+                <h3 class="project-name">{p.name}</h3>
+                <span class="status-dot" style={`color: ${s.color}`}>
+                  <span class="dot-glyph">●</span>
+                  <span class="mono" style="font-size: 11px;">{s.label}</span>
+                </span>
+              </div>
+              <p class="project-tagline mono">{p.tagline}</p>
+            </div>
+
+            <p class="project-desc">{p.description}</p>
+
+            <div class="card-footer">
+              <div class="project-stack">
+                {p.stack.map((t) => (
+                  <span class="tag mono">{t}</span>
+                ))}
+              </div>
+              {Object.keys(p.links).length > 0 && (
+                <div class="project-links">
+                  {p.links.github && <a href={p.links.github} class="link-btn mono" target="_blank">gh ↗</a>}
+                  {p.links.live && <a href={p.links.live} class="link-btn mono" target="_blank">live ↗</a>}
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .project-card {
+    background: var(--bg);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: background 0.15s;
+  }
+
+  .project-card:hover {
+    background: var(--bg-2);
+  }
+
+  .card-top {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .card-name-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .project-name {
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .status-dot {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+  }
+
+  .dot-glyph {
+    font-size: 8px;
+  }
+
+  .project-tagline {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.01em;
+  }
+
+  .project-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 12px;
+    margin-top: auto;
+  }
+
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 10px;
+    padding: 3px 8px;
+    border: 1px solid var(--border-strong);
+    border-radius: 2px;
+    color: var(--text-dim);
+    letter-spacing: 0.02em;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .link-btn {
+    font-size: 12px;
+    color: var(--text-muted);
+    transition: color 0.15s;
+  }
+
+  .link-btn:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 600px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

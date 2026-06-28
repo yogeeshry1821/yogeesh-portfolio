@@ -1,0 +1,83 @@
+---
+const categories = [
+  {
+    label: 'AI / ML',
+    items: ['LangChain', 'RAG pipelines', 'Milvus', 'OpenAI API', 'Prompt engineering', 'LLM fine-tuning', 'spaCy', 'Edge AI'],
+  },
+  {
+    label: 'Backend',
+    items: ['Python', 'FastAPI', 'Flask', 'Laravel 11', 'PHP', 'GraphQL', 'REST', 'WebSockets'],
+  },
+  {
+    label: 'Frontend',
+    items: ['Vue 3', 'Nuxt 3', 'TypeScript', 'Next.js', 'React', 'Pinia', 'Framer Motion'],
+  },
+  {
+    label: 'Infra / Data',
+    items: ['Docker', 'AWS', 'Redis', 'RabbitMQ', 'MySQL', 'PostgreSQL', 'Cloudflare', 'GitHub Actions'],
+  },
+  {
+    label: 'Signal / Hardware',
+    items: ['HRV / GSR processing', 'BLE (Bluetooth LE)', 'Polar H10', 'Edge inference'],
+  },
+  {
+    label: 'Methods',
+    items: ['Event-driven arch.', 'CQRS / Event sourcing', 'Repository pattern', 'Competitive programming', 'DSA'],
+  },
+];
+---
+
+<section class="section" id="skills">
+  <div class="container">
+    <div class="section-label">stack</div>
+
+    <div class="skills-grid">
+      {categories.map((cat) => (
+        <div class="skill-group">
+          <h4 class="cat-label mono">{cat.label}</h4>
+          <div class="skill-items">
+            {cat.items.map((item) => (
+              <span class="skill-item">{item}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 36px 48px;
+  }
+
+  .cat-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .skill-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-item {
+    font-size: 13px;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 5px 12px;
+    border-radius: 3px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .skill-item:hover {
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+</style>

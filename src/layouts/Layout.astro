@@ -1,0 +1,153 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'Yogeesh — AI Engineer', description = 'AI Engineer building at the intersection of LLMs, biosensors, and full-stack systems.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-inner">
+        <a href="/" class="nav-logo mono">yh<span class="accent">.</span></a>
+        <ul class="nav-links">
+          <li><a href="#experience">exp</a></li>
+          <li><a href="#projects">work</a></li>
+          <li><a href="#skills">stack</a></li>
+          <li><a href="#blog">writing</a></li>
+          <li><a href="#contact" class="nav-cta">contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <span class="mono" style="color: var(--text-dim); font-size: 13px;">
+            © 2025 Yogeesh H
+          </span>
+          <div class="footer-links">
+            <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">gh</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">li</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">tw</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-muted);
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover {
+    color: var(--text);
+  }
+
+  .nav-cta {
+    color: var(--accent) !important;
+    border: 1px solid var(--accent-border);
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition: background 0.15s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--accent-dim);
+  }
+
+  main {
+    padding-top: 56px;
+  }
+
+  footer {
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-links a {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-dim);
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 600px) {
+    .nav-links {
+      gap: 16px;
+    }
+    .nav-links li:nth-child(-n+2) {
+      display: none;
+    }
+  }
+</style>
