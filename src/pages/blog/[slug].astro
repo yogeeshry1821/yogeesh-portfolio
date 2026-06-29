@@ -1,41 +1,36 @@
 ---
-const posts: Record<
-  string,
-  {
-    title: string;
-    date: string;
-    readTime: string;
-    tags: string[];
-    content: string;
-  }
-> = {
-  "rag-pipeline-chemical-patents": {
-    title: "Building a production RAG pipeline for chemical patents",
-    date: "Jun 2025",
-    readTime: "8 min",
-    tags: ["RAG", "LangChain", "Milvus"],
-    content: `
-      Your post content here. Write in plain HTML or markdown.
-    `,
-  },
-  "event-driven-biosensor": {
-    title: "Event-driven architecture for biosensor data",
-    date: "May 2025",
-    readTime: "6 min",
-    tags: ["Architecture", "CQRS"],
-    content: `Your content here.`,
-  },
-  "nuxt3-session-bug": {
-    title: "Nuxt 3 session management: the double-login bug",
-    date: "Apr 2025",
-    readTime: "5 min",
-    tags: ["Nuxt 3", "Pinia", "Debugging"],
-    content: `Your content here.`,
-  },
-};
+export function getStaticPaths() {
+  const posts = {
+    "rag-pipeline-chemical-patents": {
+      title: "Building a production RAG pipeline for chemical patents",
+      date: "Jun 2025",
+      readTime: "8 min",
+      tags: ["RAG", "LangChain", "Milvus"],
+      content: `<p>Your post content here.</p>`,
+    },
+    "event-driven-biosensor": {
+      title: "Event-driven architecture for biosensor data",
+      date: "May 2025",
+      readTime: "6 min",
+      tags: ["Architecture", "CQRS"],
+      content: `<p>Your content here.</p>`,
+    },
+    "nuxt3-session-bug": {
+      title: "Nuxt 3 session management: the double-login bug",
+      date: "Apr 2025",
+      readTime: "5 min",
+      tags: ["Nuxt 3", "Pinia", "Debugging"],
+      content: `<p>Your content here.</p>`,
+    },
+  };
 
-const { slug } = Astro.params;
-const post = posts[slug!];
+  return Object.entries(posts).map(([slug, data]) => ({
+    params: { slug },
+    props: { post: data },
+  }));
+}
+
+const { post } = Astro.props;
 
 if (!post) return Astro.redirect("/");
 ---
