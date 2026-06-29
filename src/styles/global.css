@@ -21,7 +21,19 @@
   --font-mono: 'JetBrains Mono', monospace;
   --font-sans: 'Inter', sans-serif;
 }
-
+[data-theme="light"] {
+  --bg: #F5F5F5;
+  --bg-2: #EBEBEB;
+  --bg-3: #E0E0E0;
+  --text: #111111;
+  --text-muted: #555555;
+  --text-dim: #999999;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.15);
+  --accent: #00AA55;
+  --accent-dim: rgba(0, 170, 85, 0.08);
+  --accent-border: rgba(0, 170, 85, 0.25);
+}
 html {
   scroll-behavior: smooth;
 }

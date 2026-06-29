@@ -1,28 +1,31 @@
 ---
 const posts = [
   {
-    title: 'Building a production RAG pipeline for chemical patents',
-    date: 'Jun 2025',
-    readTime: '8 min',
-    tags: ['RAG', 'LangChain', 'Milvus'],
-    excerpt: 'Lessons from shipping semantic search over 10M+ chemical patents — chunking strategy, embedding choices, and retrieval quality.',
-    href: '#',
+    title: "Building a production RAG pipeline for chemical patents",
+    date: "Jun 2025",
+    readTime: "8 min",
+    tags: ["RAG", "LangChain", "Milvus"],
+    excerpt:
+      "Lessons from shipping semantic search over 10M+ chemical patents — chunking strategy, embedding choices, and retrieval quality.",
+    href: "/blog/rag-pipeline-chemical-patents",
   },
   {
-    title: 'Event-driven architecture for biosensor data: a design walkthrough',
-    date: 'May 2025',
-    readTime: '6 min',
-    tags: ['Architecture', 'CQRS', 'MindPattern'],
-    excerpt: 'Why event sourcing makes sense when your data is physiological, time-series, and needs to power a future AI moat.',
-    href: '#',
+    title: "Event-driven architecture for biosensor data: a design walkthrough",
+    date: "May 2025",
+    readTime: "6 min",
+    tags: ["Architecture", "CQRS", "MindPattern"],
+    excerpt:
+      "Why event sourcing makes sense when your data is physiological, time-series, and needs to power a future AI moat.",
+    href: "/blog/event-driven-biosensor",
   },
   {
-    title: 'Nuxt 3 session management: the double-login bug and how I fixed it',
-    date: 'Apr 2025',
-    readTime: '5 min',
-    tags: ['Nuxt 3', 'Pinia', 'Debugging'],
-    excerpt: 'A subtle stale watcher was setting sessionExpired after a successful refresh. Here\'s how I tracked it down.',
-    href: '#',
+    title: "Nuxt 3 session management: the double-login bug and how I fixed it",
+    date: "Apr 2025",
+    readTime: "5 min",
+    tags: ["Nuxt 3", "Pinia", "Debugging"],
+    excerpt:
+      "A subtle stale watcher was setting sessionExpired after a successful refresh. Here's how I tracked it down.",
+    href: "/blog/nuxt3-session-bug",
   },
 ];
 ---
@@ -32,25 +35,27 @@ const posts = [
     <div class="section-label">writing</div>
 
     <div class="posts">
-      {posts.map((post) => (
-        <a href={post.href} class="post-row">
-          <div class="post-meta">
-            <span class="post-date mono">{post.date}</span>
-            <span class="sep">·</span>
-            <span class="post-read mono">{post.readTime}</span>
-          </div>
-          <div class="post-body">
-            <h3 class="post-title">{post.title}</h3>
-            <p class="post-excerpt">{post.excerpt}</p>
-            <div class="post-tags">
-              {post.tags.map((t) => (
-                <span class="tag mono">{t}</span>
-              ))}
+      {
+        posts.map((post) => (
+          <a href={post.href} class="post-row">
+            <div class="post-meta">
+              <span class="post-date mono">{post.date}</span>
+              <span class="sep">·</span>
+              <span class="post-read mono">{post.readTime}</span>
             </div>
-          </div>
-          <span class="post-arrow">↗</span>
-        </a>
-      ))}
+            <div class="post-body">
+              <h3 class="post-title">{post.title}</h3>
+              <p class="post-excerpt">{post.excerpt}</p>
+              <div class="post-tags">
+                {post.tags.map((t) => (
+                  <span class="tag mono">{t}</span>
+                ))}
+              </div>
+            </div>
+            <span class="post-arrow">↗</span>
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>
@@ -88,7 +93,8 @@ const posts = [
     padding-top: 3px;
   }
 
-  .post-date, .post-read {
+  .post-date,
+  .post-read {
     font-size: 12px;
     color: var(--text-dim);
   }

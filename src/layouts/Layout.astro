@@ -1,12 +1,15 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
   title?: string;
   description?: string;
 }
 
-const { title = 'Yogeesh — AI Engineer', description = 'AI Engineer building at the intersection of LLMs, biosensors, and full-stack systems.' } = Astro.props;
+const {
+  title = "Yogeesh — AI Engineer",
+  description = "AI Engineer building at the intersection of LLMs, biosensors, and full-stack systems.",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -21,14 +24,20 @@ const { title = 'Yogeesh — AI Engineer', description = 'AI Engineer building a
   <body>
     <nav>
       <div class="nav-inner">
-        <a href="/" class="nav-logo mono">yh<span class="accent">.</span></a>
+        <a href="/" class="nav-logo mono">yo<span class="accent">.</span></a>
         <ul class="nav-links">
           <li><a href="#experience">exp</a></li>
           <li><a href="#projects">work</a></li>
           <li><a href="#skills">stack</a></li>
           <li><a href="#blog">writing</a></li>
+          <li>
+            <a href="/resume.pdf" download class="nav-resume mono">resume ↓</a>
+          </li>
           <li><a href="#contact" class="nav-cta">contact</a></li>
         </ul>
+        <button id="theme-toggle" aria-label="Toggle theme">
+          <span id="theme-icon">☀️</span>
+        </button>
       </div>
     </nav>
 
@@ -43,9 +52,24 @@ const { title = 'Yogeesh — AI Engineer', description = 'AI Engineer building a
             © 2025 Yogeesh H
           </span>
           <div class="footer-links">
-            <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">gh</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">li</a>
-            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">tw</a>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub">gh</a
+            >
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn">li</a
+            >
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener"
+              aria-label="Twitter">tw</a
+            >
           </div>
         </div>
       </div>
@@ -64,7 +88,14 @@ const { title = 'Yogeesh — AI Engineer', description = 'AI Engineer building a
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
-
+  .nav-resume {
+    font-size: 13px;
+    color: var(--text-muted);
+    transition: color 0.15s;
+  }
+  .nav-resume:hover {
+    color: var(--accent);
+  }
   .nav-inner {
     max-width: 900px;
     margin: 0 auto;
@@ -146,8 +177,38 @@ const { title = 'Yogeesh — AI Engineer', description = 'AI Engineer building a
     .nav-links {
       gap: 16px;
     }
-    .nav-links li:nth-child(-n+2) {
+    .nav-links li:nth-child(-n + 2) {
       display: none;
     }
   }
+  #theme-toggle {
+    background: none;
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    padding: 5px 9px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: border-color 0.15s;
+  }
+  #theme-toggle:hover {
+    border-color: var(--accent-border);
+  }
 </style>
+<script>
+  const toggle = document.getElementById("theme-toggle");
+  const icon = document.getElementById("theme-icon");
+  const html = document.documentElement;
+
+  // Load saved preference
+  const saved = localStorage.getItem("theme") || "dark";
+  html.setAttribute("data-theme", saved);
+  icon.textContent = saved === "dark" ? "☀️" : "🌙";
+
+  toggle?.addEventListener("click", () => {
+    const current = html.getAttribute("data-theme");
+    const next = current === "dark" ? "light" : "dark";
+    html.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+    icon.textContent = next === "dark" ? "☀️" : "🌙";
+  });
+</script>
